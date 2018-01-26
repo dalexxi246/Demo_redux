@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.wh2soft.footy.ui.viewmodels.AuthViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_email_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black">
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/ic_person_black_24dp"
+                android:drawableRight="@drawable/ic_person_black_24dp"
+                android:drawableTint="@color/divider"
+                android:hint="@string/label_email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="0dp"
+                android:paddingRight="4dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="0dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_password_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_email_label"
+            android:textColor="@color/black">
+
+            <EditText
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/ic_vpn_key_black_24dp"
+                android:drawableRight="@drawable/ic_vpn_key_black_24dp"
+                android:drawableTint="@color/divider"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingLeft="0dp"
+                android:paddingRight="4dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="0dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_login_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_password_label"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@drawable/bkg_button"
+            android:enabled="false"
+            android:elevation="@dimen/elevation_button_resting_2dp"
+            android:text="@string/label_sign_in"
+            android:textColor="@color/icons" />
+
+    </RelativeLayout>
+</layout>

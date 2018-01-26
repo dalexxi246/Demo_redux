@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_name">Primer Nombre</string>
+    <string name="last_name">Primer Apellido</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="birthday">Cumpleaños</string>
+    <string name="signup">Registrarme</string>
+    <string name="or">ó</string>
+    <string name="suggest_register">Si no tienes cuenta aún, toca aqui</string>
+    <string name="suggest_login_and_social">Touch here if you have an account or Social Network</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="confirm">Confirmar</string>
+    <string name="suggest_login_social_2">Utiliza tu cuenta existente</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="errmsg_email_malformed">Email invalido</string>
+    <string name="errmsg_email_notfound">Cuenta no existe</string>
+    <string name="errmsg_offline">Por favor verifica tu conexión a internet e intenta nuevamente</string>
+    <string name="errmsg_password_invalid">Contraseña incorrecta</string>
+    <string name="errmsg_password_unmatch">Contraseñas no coinciden</string>
+    <string name="errmsg_username_invalid">Nombre de usuario invalido</string>
+    <string name="errmsg_invalid_email">Email no valido</string>
+    <string name="label_sign_in">Sign In</string>
+    <string name="label_email">Email</string>
+    <string name="errmsg_field_required">Campo requerido</string>
+    <string name="errmsg_name_invalid">Nombre invalido</string>
+    <string name="username_optional">Nombre de usuario (Opcional)</string>
+    <string name="errmsg_login_failed">Login fallido. ¿Te encuentras registrado?</string>
+    <string name="errmsg_service_fail">Oops, algo salió mal. Intenta de nuevo mas tarde.</string>
+</resources>
