@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.wh2soft.footy.ui.viewmodels.AuthViewModel" />
+            type="com.wh2.reduxLogin.ui.viewmodels.AuthViewModel" />
 
     </data>
 
@@ -32,7 +32,7 @@
 
                 <!--<include layout="@layout/view_login" android:id="@+id/form_login" />-->
 
-                <com.wh2soft.footy.ui.views.LoginFormView
+                <com.wh2.reduxLogin.ui.views.LoginFormView
                     android:id="@+id/form_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

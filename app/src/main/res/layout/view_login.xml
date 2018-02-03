@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.wh2soft.footy.ui.viewmodels.AuthViewModel" />
+            type="com.wh2.reduxLogin.ui.viewmodels.AuthViewModel" />
 
     </data>
 

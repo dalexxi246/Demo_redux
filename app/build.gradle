@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.wh2soft.footy"
+        applicationId "com.wh2.reduxLogin"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
@@ -77,6 +77,9 @@ dependencies {
     //IcePick
     implementation 'com.evernote:android-state:1.1.6'
     kapt 'com.evernote:android-state-processor:1.1.6'
+
+    //Preferences Manager
+    implementation 'com.f2prateek.rx.preferences2:rx-preferences:2.0.0-RC3'
 
     //Test
     testImplementation 'junit:junit:4.12'
