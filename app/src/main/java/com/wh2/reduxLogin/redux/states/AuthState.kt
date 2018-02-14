@@ -6,7 +6,7 @@ data class AuthState internal constructor(
         val loading: Boolean = false,
         val authResult: AuthResult = AuthResult.IDLE,
         val authStage: AuthStage = AuthStage.SIGN_IN,
-        val errorMessage: String = "",
+        val errorMessage: String? = "",
         val user: User = User()
 ) : BaseUIState(loading, errorMessage) {
 

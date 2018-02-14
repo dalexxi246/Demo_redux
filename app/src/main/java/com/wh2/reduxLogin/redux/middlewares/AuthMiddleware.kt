@@ -23,13 +23,13 @@ class AuthMiddleware(private val authInteractor: AuthInteractor) : Middleware<Ap
                 next.dispatch(action)
                 authInteractor.performLogin(action.username, action.password).subscribe(
                         { user -> next.dispatch(SUCCESSFUL_AUTH(user, AuthState.AuthResult.SUCCESS_LOGIN)) },
-                        { throwable -> next.dispatch(DISPLAY_LOGIN_BY_EMAIL_ERROR(throwable.localizedMessage)) }
+                        { throwable -> next.dispatch(DISPLAY_LOGIN_BY_EMAIL_ERROR(throwable.message)) }
                 )
             }
             is PERFORM_REGISTER -> {
                 authInteractor.performRegister(action.user, action.password).subscribe(
                         { next.dispatch(SUCCESSFUL_AUTH(action.user, AuthState.AuthResult.SUCCESS_REGISTER)) },
-                        { throwable -> next.dispatch(DISPLAY_REGISTER_ERROR(throwable.localizedMessage)) }
+                        { throwable -> next.dispatch(DISPLAY_REGISTER_ERROR(throwable.message)) }
                 )
             }
             else -> next.dispatch(action)

@@ -14,41 +14,37 @@ class AuthRepositoryImpl(val preferencesManager: RxSharedPreferences) : AuthRepo
 
     private var userExists = false
 
-    override fun signIn(email: String, password: String): Single<User> = Single.create {
-        e: SingleEmitter<User> ->
-        run {
-            if (email == EMAIL_REGISTERED && password == PASSWORD_REGISTERED) {
-                preferencesManager.getBoolean(PreferencesKeys.USER_EXISTS.key).set(true)
-                e.onSuccess(User(
-                        email = email,
-                        password = password,
-                        realName = "Wilmer Hurtado",
-                        username = "@wilmerhh",
-                        uuid = "kldsjajklsdalk",
-                        birthdate = "1991/07/06"
-                ))
-            } else {
-                e.onError(AuthException.LoginException("Unauthorized"))
-            }
-        }
-    }.delay(3, TimeUnit.SECONDS)
+    override fun signIn(email: String, password: String): Single<User> =
+            Single.create<User> { emitter ->
+                if (email == EMAIL_REGISTERED && password == PASSWORD_REGISTERED) {
+                    preferencesManager.getBoolean(PreferencesKeys.USER_EXISTS.key).set(true)
+                    emitter.onSuccess(User(
+                            email = email,
+                            password = password,
+                            realName = "Wilmer Hurtado",
+                            username = "@wilmerhh",
+                            uuid = "kldsjajklsdalk",
+                            birthdate = "1991/07/06"
+                    ))
+                } else {
+                    emitter.onError(AuthException.LoginException("Unauthorized"))
+                }
+            }.delay(3, TimeUnit.SECONDS)
 
-    override fun signUp(user: User, password: String): Single<Boolean> = Single.create {
-        emitter: SingleEmitter<Boolean> ->
-        run {
-            if (user.email == EMAIL_REGISTERED ) {
+    override fun signUp(user: User, password: String): Single<Boolean> =
+            Single.create<Boolean> { emitter ->
+            if (user.email == EMAIL_REGISTERED) {
                 emitter.onError(AuthException.RegisterException("Email exists"))
             } else {
                 preferencesManager.getBoolean(PreferencesKeys.USER_EXISTS.key).set(true)
                 emitter.onSuccess(true)
             }
-        }
     }.delay(3, TimeUnit.SECONDS)
 
-    override fun sessionExists(): Single<User> = Single.create {
+    override fun sessionExists(): Single<User> = Single.create<User> { emitter ->
         userExists = preferencesManager.getBoolean(PreferencesKeys.USER_EXISTS.key, PreferencesKeys.USER_EXISTS.defaultValue as Boolean).get()
         if (userExists) {
-            it.onSuccess(User(
+            emitter.onSuccess(User(
                     email = EMAIL_REGISTERED,
                     password = PASSWORD_REGISTERED,
                     realName = "Wilmer Hurtado",
@@ -57,12 +53,12 @@ class AuthRepositoryImpl(val preferencesManager: RxSharedPreferences) : AuthRepo
                     birthdate = "1991/07/06"
             ))
         } else {
-            it.onError(AuthException.SessionCheckException("Need authenticate"))
+            emitter.onError(AuthException.SessionCheckException("Need authenticate"))
         }
     }
 
 }
 
-enum class PreferencesKeys(val key : String, val defaultValue : Any) {
+enum class PreferencesKeys(val key: String, val defaultValue: Any) {
     USER_EXISTS("user_exists", false)
 }
