@@ -117,7 +117,7 @@ class AuthViewModel(store: Store<ApplicationState>) : ReduxViewModel(store) {
     val stateSubject: ActionLiveData<AuthState> = ActionLiveData()
 
     override fun render(state: ApplicationState) {
-        stateSubject.sendAction(state.authState)
+        stateSubject.postValue(state.authState)
     }
 
     fun performSignUp() {
@@ -149,7 +149,8 @@ class AuthViewModel(store: Store<ApplicationState>) : ReduxViewModel(store) {
 
     private fun getPasswordValidator(value: String) =
             Validator(value)
-                    .isSecurePassword()
+                    .nonEmpty()
+                    .onlyNumbers()
 
     private fun getPasswordMatchValidator(password: String, passwordConfirm: String) =
             Validator(password)

@@ -27,6 +27,7 @@ class AuthMiddleware(private val authInteractor: AuthInteractor) : Middleware<Ap
                 )
             }
             is PERFORM_REGISTER -> {
+                next.dispatch(action)
                 authInteractor.performRegister(action.user, action.password).subscribe(
                         { next.dispatch(SUCCESSFUL_AUTH(action.user, AuthState.AuthResult.SUCCESS_REGISTER)) },
                         { throwable -> next.dispatch(DISPLAY_REGISTER_ERROR(throwable.message)) }

@@ -7,7 +7,7 @@ import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import java.util.concurrent.TimeUnit
 
-class AuthRepositoryImpl(val preferencesManager: RxSharedPreferences) : AuthRepository {
+class AuthRepositoryImpl(private val preferencesManager: RxSharedPreferences) : AuthRepository {
 
     private val EMAIL_REGISTERED = "wilmer@mail.com"
     private val PASSWORD_REGISTERED = "12345"

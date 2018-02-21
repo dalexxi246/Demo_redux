@@ -114,7 +114,7 @@ class RegistryFragment : ReduxFragment() {
 
             fragmentRegisterBinding.formRegisterEmail.txt_password_label.error =
                     when (formValidations?.passwordValidationError) {
-                        ValidationError.SECURE_PASSWORD -> getString(R.string.errmsg_password_invalid)
+                        ValidationError.ONLY_NUMBERS -> getString(R.string.errmsg_password_invalid)
                         ValidationError.NON_EMPTY -> getString(R.string.errmsg_field_required)
                         else -> null
                     }
